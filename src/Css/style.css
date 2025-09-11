@@ -1,0 +1,33 @@
+
+
+#topheader{
+    width: 100%;
+    padding: 20px;
+    background-color: lightblue;
+    text-align: center;
+}
+
+#topmenu
+{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#mainmenu{
+    width: 70%;
+}
+
+h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: navy;
+    text-align: center;
+}
+
+#topshoes
+{
+    display: flex;
+    justify-content: space-between;
+    width: "90%";
+    flex-wrap: wrap;
+} 
