@@ -5,6 +5,7 @@ import ban1 from "../Images/img1.jpg";
 import ban2 from "../Images/img2.webp";
 import ban3 from "../Images/img3.jpg";
 import ban4 from "../Images/img4.jpg";
+import ban5 from "../Images/img5.jpg";
 import shoe1 from"../Images/banner1.webp";
 import shoe2 from"../Images/banner2.webp";
 const Home=()=>{
@@ -34,6 +35,12 @@ const Home=()=>{
         <Carousel.Caption>
           <h3>Fourth slide label</h3>
         </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img src={ban5} width="100%" height="600" />
+        <Carousel.Caption>
+          <h3>First slide label</h3>
+      </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
 
@@ -80,7 +87,6 @@ const Home=()=>{
         <Button variant="primary">Know More</Button>
       </Card.Body>
     </Card> 
-
     </div>
         </>
     )

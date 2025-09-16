@@ -1,9 +1,16 @@
-
+import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 const TopHeader=()=>{
+  const CartData= useSelector(state=>state.mycart.cart);
+  const CartLength= CartData.length;
+  const navigate = useNavigate();
     return(
         <>
           <div id="topheader">
-            Get EXTRA 10% OFF On Orders Above ₹1299* Code: CAM10 | Get EXTRA 15% OFF On Orders Above ₹1999* Code: CAM15
+
+            {CartLength}
+            <FaShoppingCart onClick={()=>{navigate("/mycart")}} style={{cursor:"pointer"}} />
           </div>
         </>
     )
