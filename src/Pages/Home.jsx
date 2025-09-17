@@ -8,7 +8,45 @@ import ban4 from "../Images/img4.jpg";
 import ban5 from "../Images/img5.jpg";
 import shoe1 from"../Images/banner1.webp";
 import shoe2 from"../Images/banner2.webp";
+import axios from 'axios';
+import { useState,useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTocart } from '../cartSlice';
 const Home=()=>{
+  const [mydata, setMydata] = useState([]);
+  const dispatch = useDispatch();
+
+  const loadData=async()=>{
+    let api=`${import.meta.env.VITE_API_URL}/Product`;
+    const response = await axios.get(api);
+    console.log(response.data);
+    setMydata(response.data);
+  }
+  useEffect(()=>{
+  loadData();
+  }, [])
+
+  const ans= mydata.map((key)=>{
+   return(
+    <>
+        <Card style={{ width: '18rem', margin:"10px" }}>
+      <Card.Img variant="top" src={key.images}  height="200" />
+      <Card.Body>
+        <Card.Title>{key.brand}</Card.Title>
+        <Card.Text>
+           {key.name}
+           <br />
+           <span style={{color:"red"}}>Category : {key.category}</span> 
+           <br />
+           <span style={{color:"navy" , fontWeight:"bold"}}>Price : {key.price}</span> 
+        </Card.Text>
+        <Button variant="primary" onClick={()=>{dispatch(addTocart({id:key.id, name:key.name, brand:key.brand, category:key.category, price:key.price, images:key.images, qnty:1}))}}>Add To Cart</Button>
+      </Card.Body>
+    </Card>
+
+    </>
+   )
+})
     return(
         <>
           <Carousel>
@@ -88,8 +126,10 @@ const Home=()=>{
       </Card.Body>
     </Card> 
     </div>
+    <div id='topwacthes' style={{width:"90%", margin:"auto"}}>
+        {ans}
+    </div>
         </>
     )
 }
-
 export default Home;
