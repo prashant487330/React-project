@@ -26,7 +26,7 @@ const Home=()=>{
   loadData();
   }, [])
 
-  const ans= mydata.map((key)=>{
+  const ans=mydata.map((key)=>{
    return(
     <>
         <Card style={{ width: '18rem', margin:"10px" }}>
@@ -77,7 +77,7 @@ const Home=()=>{
       <Carousel.Item>
         <img src={ban5} width="100%" height="600" />
         <Carousel.Caption>
-          <h3>First slide label</h3>
+          <h3>Fifth slide label</h3>
       </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
